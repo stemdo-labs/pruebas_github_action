@@ -1,0 +1,21 @@
+name: Jobs y Steps - Ejercicio 2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: labs-runner
+    steps:
+      - name: Simulando el proceso de build
+        run: |
+          echo " Ejecutando el job de build"
+          # Simulación de fallo opcional:
+          # exit 1
+
+  deploy:
+    needs: build
+    runs-on: labs-runner
+    steps:
+      - name: Mensaje de despliegue
+        run: echo " El job de deploy se ejecuta porque build fue exitoso"
